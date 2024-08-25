@@ -1,0 +1,65 @@
+DC Universe Movie Review Web App: 
+
+About the App: 
+- The applicatiom should enable its user to select a movie from a list add it into a watchedlist  and write a recommandation or date of watch
+- The review is then registered in the file of their own movie
+- Add an option to rate the movie with a note? In the list we can see the Average Note of the movie and comments ?
+- The final list should concern also the comments of the user. 
+- User can get access with a username (Password option to be analyzed)
+
+Technical Sketch: 
+
+Front End: 
+- Home Page: 
+    - Header with title of the Application
+    - Photo with the logo of DC
+    - Box asking the username of the reviewer
+    - After the request of the username display of the page  : 
+        - Access to List of movies
+        - List of the review
+        - Search box for the movies
+- List of movies page: 
+    - Keep the header with title of the Application and username
+    - Display of the list of movies and the Average note (IMDB note and user note)
+    - See possibility of adding the Photo
+    - When clicking in the movie, it reroutes to the Movie Page with note and commentary
+
+- List of researched Movie: 
+    - Keep the header with title of the Application and username
+    - Display of the movie researched or result not found
+    - When clicking reroutes to the movie page (Complicated maybe ?)
+
+- Each Movie page: 
+    - Keep the header with title of the Application and username
+    - Display Title, Date, IMDB Note, and User note (photo maybe)
+
+
+Back End:
+- FLask framework run 
+- Home Page route 
+    - Get HTML Page
+    - Get the username with Post method and change of the form adapting to the username
+    - Get the keyword to search for the movie
+    - Get the movie reviewed
+
+List of movies page: 
+    - Get HTMl page
+    - Get the list of the movies and their content
+    - Possibility to add a review inside a movie
+
+List of researched Movie: 
+    - Get HTML page
+    - Get the movie title researched
+
+Movie Page: 
+    - Get HTML page
+    - Get the Movie content and element
+    - Possibility to add a review inside a movie
+
+JSS: 
+- local storage to remember the username
+- Init to render the content of the movie ?
+- event listener for the button to save username and load the page
+
+CSS:
+- Style.css for all the pages
