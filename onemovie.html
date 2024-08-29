@@ -10,11 +10,22 @@
     <div class ="head">
         <h1> Your DC Movie Watchlist</h1>
     </div>
-    &&DETAIL&&
+    &&DETAIL&& 
+<!-- This code has been taken from here : https://www.w3schools.com/TAGS/att_input_type_checkbox.asp#:~:text=The%20%3Cinput%20type%3D%22checkbox,ticked%20(checked)%20when%20activated. -->
+    <p>Watched movie ?</p> 
+    <form action="/onemovie">
+        
+        <input type="checkbox" id="YesMovie" name="YesMovie">
+        <label for="YesMovie"> Yes </label>
+        <input type="checkbox" id="NoMovie" name="NoMovie">
+        <label for="NoMovie"> No </label>
+        
+    </form>
+    <br>
     <!-- This code has been taken from here : https://www.quackit.com/html/codes/comment_box_code.cfm -->
-    <form action="/onemovie" method="post">
+    <form action="/onemovie" method="get">
         <div>
-        <textarea name="comments" id="comments" style="font-family:sans-serif;font-style: italic;" placeholder="Insert your review..."></textarea>
+        <textarea name="MyComment" id="MyComment" style="font-family:sans-serif;font-style: italic;" placeholder="Insert your review..."></textarea>
         </div>
         <input type="submit" value="Submit">
     </form>
