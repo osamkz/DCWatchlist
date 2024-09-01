@@ -10,26 +10,39 @@
     <div class ="head">
         <h1> Your DC Movie Watchlist</h1>
     </div>
+    <div style="text-align: right;" id="backtolist">
+        <a class="menulink" href="/allmovies"> Back to the list. </a> 
+    </div>
     &&DETAIL&& 
-<!-- This code has been taken from here : https://www.w3schools.com/TAGS/att_input_type_checkbox.asp#:~:text=The%20%3Cinput%20type%3D%22checkbox,ticked%20(checked)%20when%20activated. -->
-    <p>Watched movie ?</p> 
-    <form action="/onemovie">
+    <div id = "MovieComment">
+    &&COMM&&
+</div>
+ 
+<!-- This code has been inspired by : https://www.w3schools.com/TAGS/att_input_type_checkbox.asp#:~:text=The%20%3Cinput%20type%3D%22checkbox,ticked%20(checked)%20when%20activated. 
+Same name should be given to the label, so only one can be selected-->
+    <p>Watched movie ?: YES/NO</p> 
+    <form action="/onemovie/{{ movie_name }}" method="post">
         
-        <input type="checkbox" id="YesMovie" name="YesMovie">
+        <input type="radio" id="YesMovie" name="MovieDecision" value="yes">
         <label for="YesMovie"> Yes </label>
-        <input type="checkbox" id="NoMovie" name="NoMovie">
+        <input type="radio" id="NoMovie" name="MovieDecision" value="no">
         <label for="NoMovie"> No </label>
+        <br>
+        <input type="submit" name ="SaveWatch" value="Save choice">
         
     </form>
     <br>
-    <!-- This code has been taken from here : https://www.quackit.com/html/codes/comment_box_code.cfm -->
-    <form action="/onemovie" method="get">
-        <div>
-        <textarea name="MyComment" id="MyComment" style="font-family:sans-serif;font-style: italic;" placeholder="Insert your review..."></textarea>
-        </div>
-        <input type="submit" value="Submit">
+    <!-- This code has been inspired by  : https://www.quackit.com/html/codes/comment_box_code.cfm -->
+    <!-- Using the post method to keep it in the memory -->
+    <form action="/onemovie/{{ movie_name }}" method="post">
+        <div id="commentBox">
+        <textarea name="MyComment" id="comment" style="font-family:sans-serif;font-style: italic;" placeholder="Insert your review..."></textarea>
+        </div><br>
+        <input type="submit"  name = "SaveComment" value="Submit comment">
     </form>
-
+    <br>
+    <br>
+    
     <script src="static/courseapp.js"></script>  
 </body>
 </html>
