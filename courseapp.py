@@ -136,27 +136,11 @@ def get_onemovie(movie_name):
 def watched_movie(movie_name):
     onemovie_page = get_html_sub("onemovie", movie_noun = movie_name)
     movie_info = Moviz.populate_moviz("moviesdetails.txt")
-    movie_choice = request.form.get("MovieDecision")
+    # #movie_choice = request.form.get("MovieDecision")
     comment = request.form.get("MyComment")
     movie_link = movie_name.replace("_"," ")
 
-    if 'SaveWatch' in request.form:
-        for movie in movie_info:
-            if movie.title == movie_link:
-                if movie_choice == "yes" or movie_choice == "no":
-                    movie_name = movie.title
-                    movie_comment = str(comment)
-                    movie_path = movie_name + ".txt"
-                    save_movie(movie_path,movie_comment)
-                    movie_content = get_comment(movie_path)
-                    #update_page = onemovie_page.replace("{{ movie_name }}",movie_name)
-                    update_page = onemovie_page.replace("&&DETAIL&&",Moviz.movie_info(movie))
-                    update_page = update_page.replace("YES/NO", movie_choice)
-                    update_page = update_page.replace("&&COMM&&",movie_content)
-                    return update_page
-                else:
-                    return "Movie not found"
-    elif "SaveComment" in request.form:
+    if "SaveComment" in request.form:
         for movie in movie_info: 
             if movie.title == movie_link:
                 if comment != "":
@@ -168,13 +152,31 @@ def watched_movie(movie_name):
 
                     #update_page = onemovie_page.replace("{{ movie_name }}",movie_name)
                     update_page = onemovie_page.replace("&&DETAIL&&",Moviz.movie_info(movie))
-                    update_page = update_page.replace("YES/NO", movie_choice)
+                    update_page = update_page.replace("NO", "YES")
                     update_page = update_page.replace("&&COMM&&",movie_content)
                     return update_page
                 else: 
                     return "Movie not found"
     else: 
         return "Movie not found"
+    
+
+@app.route("/result")
+def search_notes():
+    resultp = get_html("result")
+    movies_list = get_list()
+    note = flask.request.args.get("mySearch")
+    value = ""
+    found_match = False
+    for movie in movies_list:
+        if str(note).lower() in str(movie).lower():
+            movie = movie.strip()
+            movie_param = movie.replace(" ","_")
+            value = value + "<p>" + "<a class="+"menulink"+" href="+"/onemovie/"+movie_param+"> " + movie +  "</a> </p>"
+            found_match = True
+    if not found_match :
+        value =  "<p> No Result found </p>"
+    return resultp.replace("&&RESULT&&",value)
 
 
 
