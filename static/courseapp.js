@@ -13,7 +13,7 @@ const presentForm = document.getElementById("presentForm");
 function saveUsername(){
     const newParagraph = document.createElement("h3");
     newParagraph.className = "paragraphStyle";
-    newParagraph.innerText = "Welcome to your Watchlist " + myName.value + " !";
+    newParagraph.innerText = "Welcome to your DC List " + myName.value + " !";
     username.appendChild(newParagraph);
     username.removeChild(presentForm);
     // Introducing the local storage

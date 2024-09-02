@@ -1,0 +1,40 @@
+.head{
+    background-color:darkgoldenrod;
+    color:aliceblue;
+    text-align: center;
+}
+#DCLogo{
+    width: 40px;
+    height: auto;
+}
+
+#Wholepage{
+    background-color:gainsboro;
+    margin-left: 0,5cm;
+}
+
+#presentForm {
+    border: 2px solid darkgray;
+    padding: 20px;
+    text-align: justify;
+}
+
+#listofmovie{
+    border: 2px solid darkgray;
+    padding: 20px;
+    text-align: justify;
+}
+
+#searchmovie{
+    border: 2px solid darkgray;
+    padding: 20px;
+    text-align: justify;
+}
+.paragraphStyle {
+    border: 2px solid darkgray;
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+    color:peru;
+}
+
