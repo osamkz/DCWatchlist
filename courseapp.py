@@ -95,6 +95,7 @@ def home():
 def get_movies():
     movie_page = get_html("allmovies")
     movies_list = get_list()
+    movies_list = sorted(movies_list)
     value = ""
     for movie in movies_list:
         movie = movie.strip()
@@ -175,5 +176,5 @@ def search_notes():
             value = value + "<p>" + "<a class="+"menulink"+" href="+"/onemovie/"+movie_param+"> " + movie +  "</a> </p>"
             found_match = True
     if not found_match :
-        value =  "<p> No Result found </p>"
+        value =  "<p> No Result found ! Surely a move from The Riddler... </p>"
     return resultp.replace("&&RESULT&&",value)

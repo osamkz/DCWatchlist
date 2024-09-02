@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Reviewer</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>DC Movie Reviewer</title>
+    <link rel="stylesheet" href="static/Style.css">
 </head>
 <body>
     <div id ="Wholepage">
         <div class ="head">
-            <h1> Your DC Movie Watchlist</h1>  <img id="DCLogo" src="static/DCLogo.png" alt="DC Logo">
-
+            <h1><img id="DCLogo" src="static/DCLogo.png" alt="DC Logo">  Your DC Movie Watchlist </h1>  
+            
         </div>
+    <br>
             <div id="username">
                 <div id="presentForm">
-                <h3 id="mySelf">Welcome DC Fan !</h3>
+                <h3 class="h3Title">Welcome DC Fan !</h3>
                 <p id="myPresent">Please enter your username. </p>
                 <input id="myName" type="text"  placeholder="Insert your username">
                 <input id ="saveName" type="button" value="Register"> 
@@ -23,7 +24,7 @@
         
 
         <div id="listofmovie">
-            <h3 id="listTitle">List of all DC Movies</h3>
+            <h3 class="h3Title">List of all DC Movies</h3>
             <p>You can now get to the list and scroll through the DC Extended Universe Movies.
             <br>
                 Select your enlisted movie and add a review if you wish !  </p>
@@ -33,14 +34,17 @@
         </div>
 
         <div id="searchmovie">
-            <h3 id = "searchTitle"> Search your Movie</h3>
-            <p>Not everyone is Batman to find right to the bat ! <br> Please insert your keyword and let us help you get to your seeked movie !</p>
+            <h3 class = "h3Title"> Search your Movie</h3>
+            <p>Not everyone is Batman to find right off the bat ! <br> Please insert your keyword and let us help you get to your seeked movie !</p>
             <form action="/result"  method="get">
                 <input type="text" id="mySearch" class="box" name = "mySearch" placeholder="Insert your keyword">
                 <input type="submit" value="Search">
                 </form>
         </div>
         <script src="static/courseapp.js"></script>  
-    </div>  
+    </div>
+    <footer class="footerstyle">
+        <h5>-- Powered by KZ Team - 2024 --</h5>
+    </footer>
 </body>
 </html>

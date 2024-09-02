@@ -2,14 +2,20 @@
     background-color:darkgoldenrod;
     color:aliceblue;
     text-align: center;
+    padding:2px;
 }
+
+.h3Title {
+    color:rgb(50, 50, 203);
+}
+
 #DCLogo{
     width: 40px;
     height: auto;
 }
 
 #Wholepage{
-    background-color:gainsboro;
+    background-color:ghostwhite;
     margin-left: 0,5cm;
 }
 
@@ -18,7 +24,14 @@
     padding: 20px;
     text-align: justify;
 }
-
+#allmoviespage{
+    border: 2px solid darkgray;
+    background-color:ghostwhite;
+    padding:20px;
+}
+#ListTitle{
+    text-align: center;
+}
 #listofmovie{
     border: 2px solid darkgray;
     padding: 20px;
@@ -31,10 +44,15 @@
     text-align: justify;
 }
 .paragraphStyle {
-    border: 2px solid darkgray;
+
     padding: 20px;
     text-align: center;
     font-style: italic;
-    color:peru;
+    color:rgb(50, 50, 203);
 }
 
+.footerstyle{
+    font-style: italic;
+    text-align: center;
+    color:rgb(50, 50, 203);
+}
