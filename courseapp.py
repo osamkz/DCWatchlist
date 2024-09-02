@@ -177,32 +177,3 @@ def search_notes():
     if not found_match :
         value =  "<p> No Result found </p>"
     return resultp.replace("&&RESULT&&",value)
-
-
-
-
-""" @app.route("/onemovie/<movie_name>", methods=["POST"])
-def add_com_onemovie(movie_name):
-    onemovie_page = get_html("onemovie")
-    movie_info = Moviz.populate_moviz("moviesdetails.txt")
-    comment = request.form.get("MyComment")
-    movie_param = movie_name.replace("_"," ")
-    for movie in movie_info: 
-        if comment != "":
-            movie_name = movie.title
-            #print(comment)
-            movie_comment = ""
-            movie_comment = movie_comment + str(comment)
-            movie_path = movie_name + ".txt"
-            save_movie(movie_path,movie_comment)
-            movie_content = get_comment(movie_path)
-            print(movie_content)
-
-            update_page = onemovie_page.replace("&&movie_name&&",movie_name)
-            update_page = update_page.replace("&&DETAIL&&",Moviz.movie_info(movie))
-            update_page = update_page.replace("&&COMM&&",movie_content)
-            return update_page
-        else: 
-            return "Movie not found"
-
- """ 

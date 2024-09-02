@@ -7,6 +7,7 @@ const mySelf = document.getElementById("mySelf");
 const myPresent = document.getElementById("myPresent");
 const presentForm = document.getElementById("presentForm");
 
+
 // introducing the methods
 
 function saveUsername(){
