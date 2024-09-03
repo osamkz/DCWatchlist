@@ -8,4 +8,4 @@ Suicide Squad;
 Wonder woman;
 Justice League;
 Shazam;
-The Flash;
+The Flash

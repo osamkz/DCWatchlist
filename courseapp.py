@@ -27,6 +27,7 @@ def get_list():
     content = list_file.read()
     list_file.close()
     movie_list = content.split(";")
+    movie_list = [movie.replace("\n","") for movie in movie_list]
     return movie_list 
 
 #functions to add comment in the txt file
