@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie detail</title>
-    <link rel="stylesheet" href="static/Style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div class ="head">
-        <h1><img id="DCLogo" src="static/DCLogo.png" alt="DC Logo">  Your DC Movie Watchlist </h1>  
+        <h1><img id="DCLogo" src="/static/DCLogo.png" alt="DC Logo">  Your DC Movie Watchlist </h1>  
         
     </div>
+    <br>
 
 
     <div style="text-align: right;" id="backtolist">
-        <a class="menulink" href="/allmovies"> Back to the list. </a> 
+        <a class="menulink" href="/allmovies"> Back to the list </a> 
     </div>
+    <div id = "MovieDetail">
+        <h3 class="h3Title" style="text-align: center;">Selected Movie details </h3>
+
     &&DETAIL&& 
     <div id = "MovieComment">
     &&COMM&&
     </div>
- 
 <!-- This code has been inspired by : https://www.w3schools.com/TAGS/att_input_type_checkbox.asp#:~:text=The%20%3Cinput%20type%3D%22checkbox,ticked%20(checked)%20when%20activated. 
 Same name should be given to the label, so only one can be selected
 
@@ -46,15 +49,14 @@ Left as a legacy until resolved -->
     <form action="/onemovie/{{ movie_name }}" method="post">
         <div id="commentBox">
         <textarea name="MyComment" id="comment" style="font-family:sans-serif;font-style: italic;" placeholder="Insert your review..."></textarea>
-        </div><br>
+        </div>
         <input type="submit"  name = "SaveComment" value="Submit comment">
     </form>
-    <br>
-    <br>
+    </div>
     
-    <script src="static/courseapp.js"></script>  
-    <footer>
-        <h5 style="font-style: italic;text-align: center;color:darkslateblue;">-- Powered by KZ Team - 2024 --</h5>
+    <script src="/static/courseapp.js"></script>  
+    <footer class="footerstyle">
+        <h5>-- Powered by KZ Team - 2024 --</h5>
     </footer>
 </body>
 </html>

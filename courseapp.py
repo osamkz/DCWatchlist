@@ -3,6 +3,7 @@ import datetime
 from flask import request
 from datetime import date
 from datetime import datetime
+
 app = flask.Flask("courseapp")
 
 #Defining the get page, get list, and the class init of the movies
@@ -32,7 +33,7 @@ def get_list():
 def save_movie(movie_name, movie_info):
     file_path = "movie_cmt/"+movie_name
     file = open(file_path, "a")
-    file.write("<ul> <i>Written on:</i> " + str(datetime.today().strftime("%d-%m-%Y")) + "<br> " + movie_info+" \n <br></ul>")
+    file.write("<ul><li> <i>Written on</i> " + str(datetime.today().strftime("%d-%m-%Y")) + ":<br> " + movie_info+" \n <br></li></ul>")
     file.close
 
 
@@ -73,11 +74,12 @@ class Moviz:
     #Method to return the identified elements of each movie information 
     #Use of f string to preserve html format. This is not my code 
     # source :https://docs.python.org/3/reference/lexical_analysis.html#f-strings
+    #Use of the span so that the Movie element can stay next to the information with no break of line 
     def movie_info(self):
-        a = f"<p> Title: {self.title} </p>"
-        b = f"<p> Release: {self.release} </p>"
-        c = f"<p> Summary: {self.summary} </p>"
-        d = f"<p> Comment: {self.comment} </p>"
+        a = f"<p> <span class = 'listStyle'> Title:</span> <span>{self.title} </span></p>"
+        b = f"<p> <span class = 'listStyle'> Release:</span> <span>{self.release} </span></p>"
+        c = f"<p> <span class = 'listStyle'> Summary:</span> <span>{self.summary} </span></p>"
+        d = f"<p> <span class = 'listStyle'> Comments:</span> <span>{self.comment} </span></p>"
         return str(a + b + c + d)
     
     
