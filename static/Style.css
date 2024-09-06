@@ -84,3 +84,17 @@
     text-align: center;
     color:rgb(50, 50, 203);
 }
+
+.displayedList{
+    border: 1px  dashed darkgray;
+    padding: 20px;
+    background-color: rgb(212, 225, 243);
+    list-style:square;
+}
+
+#addedmovies{
+    border: 1px  dashed darkgray;
+    padding: 20px;
+    background-color: rgb(212, 225, 243);
+    list-style:square;
+}

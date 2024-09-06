@@ -51,22 +51,27 @@ function loadname(){
 function saveMovie(){
     const newParaforList = document.createElement("h6");
     newParaforList.className = "paraforList";
-    newParaforList.innerText =  "Added with success !";
-    watchBox.appendChild(newParaforList);
-    watchBox.removeChild(watchForm)
-
-
      // Introducing the local storage
     let itemCount = Object.keys(localStorage).length;
-    if (itemCount > 0){;
-        const itemnum = "Movie "+(itemCount+1).toString();
-        localStorage.setItem(itemnum, addMovie.value)
-
+    let movieAdded = false;
+    for (let i =1; i<=itemCount; i++){
+        const itemnum = "Movie "+i.toString();
+        if (localStorage.getItem(itemnum) == addMovie.value){
+            movieAdded = true;
+            break; 
+        }
+    }
+    if (movieAdded){
+        newParaforList.innerText =  "Already Added !";
     }
     else {
-        // If localStorage is empty
-        localStorage.setItem("Movie 1", addMovie.value)
+        const itemnum = "Movie " + (itemCount + 1).toString();
+        localStorage.setItem(itemnum, addMovie.value);
+        newParaforList.innerText =  "Added with success !";
     }
+
+    watchBox.appendChild(newParaforList);
+    watchBox.removeChild(watchForm);
 
 }
 
