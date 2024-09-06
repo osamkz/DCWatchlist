@@ -1,5 +1,7 @@
 //Introducing the constants necessary for the buttons
 
+//Button for the username
+
 const myName = document.getElementById("myName");
 const username = document.getElementById("username");
 const saveName = document.getElementById("saveName");
@@ -7,8 +9,16 @@ const mySelf = document.getElementById("mySelf");
 const myPresent = document.getElementById("myPresent");
 const presentForm = document.getElementById("presentForm");
 
+// button for the watchlist
+const addMovie = document.getElementById("addMovie");
+const SaveWatch = document.getElementById("SaveWatch");
+const addedmovies = document.getElementById("addedmovies");
+const watchBox = document.getElementById("watchBox");
+const watchForm = document.getElementById("watchForm");
+const listofwatch=document.getElementById("listofwatch");
 
-// introducing the methods
+
+// introducing the methods to register the username in local storage
 
 function saveUsername(){
     const newParagraph = document.createElement("h3");
@@ -37,8 +47,56 @@ function loadname(){
     }
 }
 
-//Introducing the eventlistener
+// introducing the methods to register the added Movie in local storage
+function saveMovie(){
+    const newParaforList = document.createElement("h6");
+    newParaforList.className = "paraforList";
+    newParaforList.innerText =  "Added with success !";
+    watchBox.appendChild(newParaforList);
+    watchBox.removeChild(watchForm)
 
+
+     // Introducing the local storage
+    let itemCount = Object.keys(localStorage).length;
+    if (itemCount > 0){;
+        const itemnum = "Movie "+(itemCount+1).toString();
+        localStorage.setItem(itemnum, addMovie.value)
+
+    }
+    else {
+        // If localStorage is empty
+        localStorage.setItem("Movie 1", addMovie.value)
+    }
+
+}
+
+function displayList(){
+    let element = "";
+    for (let i = 1; i <= localStorage.length; i++) {
+        const key = "Movie " + i.toString();
+
+        stored_elem = localStorage.getItem(key);
+        element = element + "\n" + stored_elem;
+    }
+    if (element != 0){
+        const newDisplaylist = document.createElement("ul");
+        newDisplaylist.className = "displayedList";
+        const searchexp=/_/gi;
+        const replacexp=" ";
+        element = element.replace(searchexp,replacexp);
+        newDisplaylist.innerText =  element;
+        listofwatch.appendChild(newDisplaylist);
+        listofwatch.removeChild(addedmovies)
+        }
+}
+
+//Introducing the case where the display function only works when we are in Index page. 
+//Source: https://stackoverflow.com/questions/50692992/how-to-run-a-javascript-function-only-on-a-certain-page-or-pages
+if ( window.location.pathname === "/") {
+    displayList();
+}
+//Introducing the eventlistener
+SaveWatch.addEventListener("click", saveMovie);
 saveName.addEventListener("click", saveUsername);
 document.addEventListener("DOMContentLoaded",function(){
     loadname()

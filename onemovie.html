@@ -33,11 +33,20 @@
         </div>
         <input type="submit"  name = "SaveComment" value="Submit comment">
     </form>
+    <br>
+       <!-- Add to WatchList piece of code-->
+        <div id="watchBox" style="text-align: right;" >
+            <div id="watchForm">
+            <input type="text" id="addMovie" value ="{{ movie_name }}">
+            <input  type="button"  id ="SaveWatch" value="Add to Watchlist">
+            </div>
+        </div>
+    </form>
     </div>
     
-    <script src="/static/courseapp.js"></script>  
     <footer class="footerstyle">
         <h5>-- Powered by KZ Team - 2024 --</h5>
     </footer>
+    <script src="/static/courseapp.js"></script>  
 </body>
 </html>

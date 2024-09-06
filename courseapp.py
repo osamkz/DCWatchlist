@@ -4,6 +4,7 @@ from flask import request
 from datetime import date
 from datetime import datetime
 
+
 app = flask.Flask("courseapp")
 
 #Defining the get page, get list, and the class init of the movies
@@ -55,6 +56,22 @@ class Moviz:
         self.release = release
         self.summary = summary
         self.comment = comment
+    
+
+    #Properties to measure the content of the Object and the timeline of the movie (Nolan or Snyder).
+    def movie_len(self):
+        return len(self.title)+len(self.release)+len(self.summary)+len(self.comment)
+
+    def movie_Timeline(self):
+        movie_year = int(self.release)
+        timeline = ""
+        if movie_year < 2015:
+            timeline = "Nolan Universe"
+        else:
+            timeline = "Snyder Universe"
+        return timeline
+
+    
 
     
     #Method to retrieve and adapt the form of the txt file with the movies informations
@@ -78,11 +95,12 @@ class Moviz:
     #Use of the span so that the Movie element can stay next to the information with no break of line 
     def movie_info(self):
         a = f"<p> <span class = 'listStyle'> Title:</span> <span>{self.title} </span></p>"
-        b = f"<p> <span class = 'listStyle'> Release:</span> <span>{self.release} </span></p>"
+        b = f"<p> <span class = 'listStyle'> Release:</span> <span>{self.release} </span> <span>({Moviz.movie_Timeline(self)}) </span></p>"
         c = f"<p> <span class = 'listStyle'> Summary:</span> <span>{self.summary} </span></p>"
         d = f"<p> <span class = 'listStyle'> Comments:</span> <span>{self.comment} </span></p>"
         return str(a + b + c + d)
     
+
     
 
 
@@ -92,7 +110,6 @@ class Moviz:
 @app.route("/")
 def home():
     return get_html("index")
-
 
 @app.route("/allmovies")
 def get_movies():
@@ -122,10 +139,8 @@ def get_onemovie(movie_name):
     #Replace the _ in order to compare with the movie title in the movie_info
     movie_param = movie_name.replace("_"," ")
     
-
 #use the class movie to complete each page
     for movie in movie_info:
-        print(movie)
         if movie.title == movie_param:
             movie_found = True
             movie_path = movie_name + ".txt"
