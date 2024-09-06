@@ -58,7 +58,7 @@ class Moviz:
         self.comment = comment
     
 
-    #Properties to measure the content of the Object and the timeline of the movie (Nolan or Snyder).
+    #Properties to measure the content of the Object and the timeline of the movie (is it part of Nolan or Snyder Universe timeline).
     def movie_len(self):
         return len(self.title)+len(self.release)+len(self.summary)+len(self.comment)
 
