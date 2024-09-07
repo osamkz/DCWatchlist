@@ -83,7 +83,7 @@ function displayList(){
         if (stored_elem !== null && stored_elem !== "") {
             element += stored_elem + "\n";
         }
-        console.log(element);
+
     }
     if (element !== "" ){
         const newDisplaylist = document.createElement("ul");
