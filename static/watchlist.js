@@ -36,4 +36,6 @@ function saveMovie(){
 
 }
 
+// eventListener for adding the movie in the watchList
+//separating the functions for adding the movie and adding the username in different file was a suggestion of AI tool as a way to solve the perturbation of both event listeners
 SaveWatch.addEventListener("click", saveMovie);

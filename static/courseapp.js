@@ -53,6 +53,7 @@ function saveMovie(){
     newParaforList.className = "paraforList";
      // Introducing the local storage
     let itemCount = Object.keys(localStorage).length;
+    // Add the movieAdded flag to be able to break the loop once the movie item in local storage detected (AI suggestion)
     let movieAdded = false;
     for (let j =1; j<=itemCount; j++){
         const itemnum = "Movie "+j.toString();
