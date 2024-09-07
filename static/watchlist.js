@@ -1,3 +1,4 @@
+//Introducing the constants necessary for the buttons
 // button for the watchlist
 const addMovie = document.getElementById("addMovie");
 const SaveWatch = document.getElementById("SaveWatch");
@@ -13,6 +14,7 @@ function saveMovie(){
      // Introducing the local storage
     let itemCount = Object.keys(localStorage).length;
     let movieAdded = false;
+         // break when we find an already existing movie added. This will enable the "Already Added message"
     for (let j =1; j<=itemCount; j++){
         const itemnum = "Movie "+j.toString();
         if (localStorage.getItem(itemnum) == addMovie.value){
