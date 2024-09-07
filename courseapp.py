@@ -15,6 +15,7 @@ def get_html(page_name):
     html_file.close()
     return content
 
+#This function is appropriate to display sub pages with movies_Names in url as to be able to replace all reference of a movie_name in the page. 
 def get_html_sub(page_name, movie_noun = None):
     html_file = open(page_name + ".html")
     content = html_file.read()
@@ -80,7 +81,7 @@ class Moviz:
             file = open(file_path, "r")
             content = file.read().strip().split("\n")
             file.close()
-            #print(content)
+            #AI Tool helped me get the split of the content of the txt file in order to  append of the movie class element
             for element in content:
                 lines = element.split(";")
                 title = lines[0].split(': ')[1]
