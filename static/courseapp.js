@@ -54,8 +54,8 @@ function saveMovie(){
      // Introducing the local storage
     let itemCount = Object.keys(localStorage).length;
     let movieAdded = false;
-    for (let i =1; i<=itemCount; i++){
-        const itemnum = "Movie "+i.toString();
+    for (let j =1; j<=itemCount; j++){
+        const itemnum = "Movie "+j.toString();
         if (localStorage.getItem(itemnum) == addMovie.value){
             movieAdded = true;
             break; 
@@ -79,11 +79,13 @@ function displayList(){
     let element = "";
     for (let i = 1; i <= localStorage.length; i++) {
         const key = "Movie " + i.toString();
-
         stored_elem = localStorage.getItem(key);
-        element = element + "\n" + stored_elem;
+        if (stored_elem !== null && stored_elem !== "") {
+            element += stored_elem + "\n";
+        }
+        console.log(element);
     }
-    if (element != 0){
+    if (element !== "" ){
         const newDisplaylist = document.createElement("ul");
         newDisplaylist.className = "displayedList";
         const searchexp=/_/gi;
@@ -95,14 +97,19 @@ function displayList(){
         }
 }
 
+//Introducing the eventlistener
 //Introducing the case where the display function only works when we are in Index page. 
 //Source: https://stackoverflow.com/questions/50692992/how-to-run-a-javascript-function-only-on-a-certain-page-or-pages
+
 if ( window.location.pathname === "/") {
     displayList();
-}
-//Introducing the eventlistener
-SaveWatch.addEventListener("click", saveMovie);
-saveName.addEventListener("click", saveUsername);
-document.addEventListener("DOMContentLoaded",function(){
-    loadname()
+    saveName.addEventListener("click", saveUsername);
+    document.addEventListener("DOMContentLoaded",function(){
+loadname()
 });
+
+    }
+
+
+
+
