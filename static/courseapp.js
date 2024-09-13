@@ -48,33 +48,6 @@ function loadname(){
 }
 
 // introducing the methods to register the added Movie in local storage
-function saveMovie(){
-    const newParaforList = document.createElement("h6");
-    newParaforList.className = "paraforList";
-     // Introducing the local storage
-    let itemCount = Object.keys(localStorage).length;
-    // Add the movieAdded flag to be able to break the loop once the movie item in local storage detected (AI suggestion)
-    let movieAdded = false;
-    for (let j =1; j<=itemCount; j++){
-        const itemnum = "Movie "+j.toString();
-        if (localStorage.getItem(itemnum) == addMovie.value){
-            movieAdded = true;
-            break; 
-        }
-    }
-    if (movieAdded){
-        newParaforList.innerText =  "Already Added !";
-    }
-    else {
-        const itemnum = "Movie " + (itemCount + 1).toString();
-        localStorage.setItem(itemnum, addMovie.value);
-        newParaforList.innerText =  "Added with success !";
-    }
-
-    watchBox.appendChild(newParaforList);
-    watchBox.removeChild(watchForm);
-
-}
 
 function displayList(){
     let element = "";

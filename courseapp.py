@@ -63,7 +63,7 @@ class Moviz:
     def movie_len(self):
         return len(self.title)+len(self.release)+len(self.summary)+len(self.comment)
 
-    def movie_Timeline(self):
+    def movie_timeline(self):
         movie_year = int(self.release)
         timeline = ""
         if movie_year < 2015:
@@ -94,9 +94,9 @@ class Moviz:
     #Use of f string to preserve html format. This is not my code 
     # source :https://docs.python.org/3/reference/lexical_analysis.html#f-strings
     #Use of the span so that the Movie element can stay next to the information with no break of line 
-    def movie_info(self):
+    def movie_details(self):
         a = f"<p> <span class = 'listStyle'> Title:</span> <span>{self.title} </span></p>"
-        b = f"<p> <span class = 'listStyle'> Release:</span> <span>{self.release} </span> <span>({Moviz.movie_Timeline(self)}) </span></p>"
+        b = f"<p> <span class = 'listStyle'> Release:</span> <span>{self.release} </span> <span>({Moviz.movie_timeline(self)}) </span></p>"
         c = f"<p> <span class = 'listStyle'> Summary:</span> <span>{self.summary} </span></p>"
         d = f"<p> <span class = 'listStyle'> Comments:</span> <span>{self.comment} </span></p>"
         return str(a + b + c + d)
@@ -146,11 +146,12 @@ def get_onemovie(movie_name):
             movie_found = True
             movie_path = movie_name + ".txt"
             movie_content = get_comment(movie_path)
-            update_page = onemovie_page.replace("&&DETAIL&&",Moviz.movie_info(movie))
+            update_page = onemovie_page.replace("&&DETAIL&&",Moviz.movie_details(movie))
             update_page = update_page.replace("&&COMM&&",movie_content)
             return update_page
     if not movie_found:
-        return onemovie_page.replace("&&DETAIL&&","404 No Page found")
+
+        return "<h2>Error 404</h2> <h2> Movie not found</h2>"
 
 @app.route("/onemovie/<movie_name>", methods=["POST"])
 def watched_movie(movie_name):
@@ -171,14 +172,17 @@ def watched_movie(movie_name):
                     movie_content = get_comment(movie_path)
 
                     #update_page = onemovie_page.replace("{{ movie_name }}",movie_name)
-                    update_page = onemovie_page.replace("&&DETAIL&&",Moviz.movie_info(movie))
+                    update_page = onemovie_page.replace("&&DETAIL&&",Moviz.movie_details(movie))
                     update_page = update_page.replace("NO", "YES")
                     update_page = update_page.replace("&&COMM&&",movie_content)
                     return update_page
                 else: 
-                    return "Movie not found"
+                    no_com_page = onemovie_page.replace("&&DETAIL&&",Moviz.movie_details(movie))
+                    no_com_page = no_com_page.replace("NO", "YES")
+                    no_com_page = no_com_page.replace("&&COMM&&","No comment added, please retry")
+                    return no_com_page
     else: 
-        return "Movie not found"
+        return "<h2>Error 404</h2> <h2> Movie not found</h2>"
     
 
 @app.route("/result")
